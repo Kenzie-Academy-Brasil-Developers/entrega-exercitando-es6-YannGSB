@@ -1,7 +1,17 @@
 const { userTypeDiscount, bookStoreBooks } = require("./database");
 
-const findBooksByCategory = (bookList, category) =>
-  bookList.filter((book) => book.categories.includes(category.toLowerCase()));
+const findBooksByCategory = (bookList, category) => {
+  const filteredBooks = [];
+  bookList.forEach((element) => {
+    const book = element.categories.filter(
+      (cat) => cat.toLowerCase() === category.toLowerCase()
+    );
+    if (book.length > 0) {
+      filteredBooks.push(element);
+    }
+    console.log(filteredBooks);
+  });
+};
 
 const findBookById = (bookList, bookId) =>
   bookList.find((book) => book.id === bookId);
