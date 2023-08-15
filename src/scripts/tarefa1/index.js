@@ -13,7 +13,3 @@ const calculateTotalCost = (customerName, products, discount = 0) => {
     return `Olá, ${customerName}! O total da sua compra é R$ ${totalWithDiscount.toFixed(2)} (${discount}% de desconto).`;
   }
 };
-
-
-console.log(calculateTotalCost("Joao", productsList));
-console.log(calculateTotalCost("Maria", productsList, 15));

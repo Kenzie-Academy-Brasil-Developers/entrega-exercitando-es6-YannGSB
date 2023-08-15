@@ -12,12 +12,13 @@ const filterTasksByPriority = (tasksList, priority) =>
 const findTaskById = (tasksList, id) =>
   tasksList.find((task) => task.id === id);
 
-// Função para remover task pelo seu id
+// Função para remover uma task pelo seu id
 const removeTask = (tasksList, id) => {
-  const updatedTasks = tasksList.filter((task) => task.id !== id);
+  const taskIndex = tasksList.findIndex((task) => task.id === id);
 
-  if (updatedTasks.length === tasksList.length) {
-    return "Tarefa não encontrada.";
+  if (taskIndex !== -1) {
+    tasksList.splice(taskIndex, 1);
+    return tasksList
   }
-  return updatedTasks;
+  return "Tarefa não encontrada."
 };
